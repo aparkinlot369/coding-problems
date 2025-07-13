@@ -53,7 +53,7 @@ func lis2(arr []int) int {
 		for j := 1; j <= len(arr); j++ {
 			if dp[j-1] < arr[i] && arr[i] < dp[j] {
 				dp[j] = arr[i]
-				res = j
+				res = max(res, j)
 			}
 		}
 	}
@@ -72,7 +72,7 @@ func lis3(arr []int) int {
 		l := upperBound(dp, arr[i])
 		if l < len(dp) && dp[l-1] < arr[i] && arr[i] < dp[l] {
 			dp[l] = arr[i]
-			res = l
+			res = max(res, l)
 		}
 	}
 	return res
